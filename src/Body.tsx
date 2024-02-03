@@ -2,9 +2,7 @@ import { Box, useMediaQuery } from "@mui/material";
 import { Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Header from "./components/Header/Header";
-import { useEffect, useState } from "react";
-import { useAppDispatch } from "./config/store";
-import { getComplaintsThunk } from "./features/complaint/complaintSlice";
+import { useState } from "react";
 
 const headerHeight = 64;
 const navBarWidth = 240;
@@ -12,11 +10,6 @@ const navBarWidth = 240;
 export default function Body() {
   const isMobile = useMediaQuery("(max-width: 768px)");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(getComplaintsThunk());
-  }, []);
 
   return (
     <Box
